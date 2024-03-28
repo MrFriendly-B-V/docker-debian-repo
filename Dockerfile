@@ -1,12 +1,12 @@
 FROM	debian:12-slim as build
 
-ARG	PACKAGES="apache2 reprepro"
-
 SHELL	["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install packages
-RUN	apt-get update \
-&&	apt-get -y --no-install-recommends install $PACKAGES
+RUN	echo "deb http://deb.debian.org/debian experimental main" > /etc/apt/sources.list.d/experimental.list
+RUN	apt update \
+&&	apt -y --no-install-recommends install apache2 libgpgme11 libgpg-error0 \
+&&	apt -y --no-install-recommends -t experimental install reprepro
 
 # Copy root filesystem
 COPY	rootfs /

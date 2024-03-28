@@ -9,7 +9,8 @@ fi >&2
 set -ueo pipefail
 
 # import gpg key
-gpg --import /mnt/key.gpg
+echo "Importing GPG Key"
+gpg --yes --batch  --import /mnt/key.gpg
 
 cd /var/www/repos/apt/debian
 
@@ -17,7 +18,7 @@ cd /var/www/repos/apt/debian
 cp /mnt/distributions conf/
 
 # export repo public key
-gpg -a --export -o repo.gpg
+gpg --no-tty -a --export -o repo.gpg
 
 # import packages
 reprepro includedeb "$RELEASE" /mnt/*.deb
