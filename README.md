@@ -1,11 +1,9 @@
 # debian-repo
+Forked from [casperklein/docker-debian-repo](https://github.com/casperklein/docker-debian-repo)
 
-![Version][version-shield]
-![Supports amd64 architecture][amd64-shield]
-![Supports aarch64 architecture][aarch64-shield]
-![Supports armhf architecture][armhf-shield]
-![Supports armv7 architecture][armv7-shield]
-![Docker image size][image-size-shield]
+Modified for use by Mr.Friendly:
+- Debian 12
+- Experimental reprepro 5.4 to support multiple versions of any one package
 
 Docker image for running a Debian repository based on [this](https://wiki.debian.org/DebianRepository/SetupWithReprepro) wiki page.
 
